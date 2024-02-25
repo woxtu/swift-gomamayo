@@ -9,10 +9,22 @@ let package = Package(
       name: "gomamayo",
       targets: ["Gomamayo"]
     ),
+    .library(
+      name: "GomamayoDetection",
+      targets: ["GomamayoDetection"]
+    ),
   ],
   targets: [
     .executableTarget(
-      name: "Gomamayo"
+      name: "Gomamayo",
+      dependencies: ["GomamayoDetection"]
+    ),
+    .target(
+      name: "GomamayoDetection"
+    ),
+    .testTarget(
+      name: "GomamayoDetectionTests",
+      dependencies: ["GomamayoDetection"]
     ),
   ]
 )
